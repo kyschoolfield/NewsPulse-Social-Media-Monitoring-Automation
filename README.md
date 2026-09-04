@@ -124,6 +124,27 @@ When the condition is met, the automation identifies the post as breaking-news c
 This provided an initial method for distinguishing potentially high-priority content from routine posts.
 
 ---
+## Workflow Evidence
+
+### Parent Bot Orchestration
+
+![NewsPulse parent bot workflow](assets/newspulse-parent-sanitized.png)
+
+The parent bot establishes the execution date, creates a dated audit workbook from a reusable template, and invokes the platform-specific child bot.
+
+### X Child Bot: Data Ingestion
+
+![NewsPulse X child bot ingestion workflow](assets/newspulse-child-top-sanitized.png)
+
+The child bot receives the target workbook path, retrieves the RSS feed through a REST request, initializes an XML session, and begins processing posts.
+
+### X Child Bot: Processing and Notification
+
+![NewsPulse X child bot processing workflow](assets/newspulse-child-lower-lines-5-17-sanitized.png)
+
+The workflow extracts post metadata, writes structured results to Excel, identifies breaking-news content, closes the workbook, and sends an email notification.
+
+---
 
 ## Technical Approach
 
